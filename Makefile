@@ -7,6 +7,7 @@ LDLIBS=-lcurl -lpthread
 OBJS=\
 	src/array.o \
 	src/buffer.o \
+	src/chan.o \
 	src/main.o \
 	src/ratelimiter.o
 
