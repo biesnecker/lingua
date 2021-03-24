@@ -15,11 +15,26 @@ typedef struct chan {
   pthread_cond_t rcond;
   pthread_cond_t wcond;
   bool full;
+  bool closed;
 } chan;
 
 chan* chan_create(size_t capacity);
 
 void chan_init(chan* c, size_t capacity);
+
+void chan_close(chan* c);
+
+bool chan_is_closed(chan* c);
+
+size_t chan_capacity(chan* c);
+
+size_t chan_size(chan* c);
+
+bool chan_empty(chan* c);
+
+void chan_write(chan* c, void* data);
+
+void* chan_read(chan* c);
 
 void chan_finalize(chan* c);
 
